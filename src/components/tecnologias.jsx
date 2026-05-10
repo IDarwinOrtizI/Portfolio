@@ -1,5 +1,5 @@
 import React from 'react';
-import TecnologiaBox from './TecnologiaBox';
+import TecnologiaBox from './tecnologiabox';
 
 // Importaciones (Usamos solo las que te funcionan)
 import { 
