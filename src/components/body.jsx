@@ -22,7 +22,7 @@ const Body = () => {
                     <h2 className="text-lg sm:text-xl font-medium 
                                 text-cyan-800 dark:text-red-500
                                 transition-colors duration-500">
-                        Tecnólogo en Análisis Y Desarrollo de Software | Desarrollador Full Stack Jr
+                        Tecnólogo en Análisis Y Desarrollo de Software | Desarrollador Full Stack 
                     </h2>
                     
                     <p className="text-gray-600 dark:text-gray-300
