@@ -38,7 +38,7 @@ function App() {
             />
             
             {/* 3. CONTENIDO PRINCIPAL */}
-            <main className="ml-20"> 
+            <main className="">  
                 
                 {/* NOTA: Usamos <section id="..."> para que la función manejarNavegacion pueda encontrarlos. */}
                 {/* Los IDs deben coincidir con los IDs definidos en Menu.jsx:
@@ -46,27 +46,27 @@ function App() {
                 */}
 
                 {/* INICIO / BODY (ID: profile o inicio) */}
-                <section id="Inicio" className="m-2">
+                <section id="Inicio" className="py-8 sm:py-16">
                     <Body /> 
                 </section>
                 
                 {/* TECNOLOGÍAS (ID: technologies) */}
-                <section id="Tecnologías" className="m-2">
+                <section id="Tecnologías" className="py-8 sm:py-16">
                     <Tecnologias/>
                 </section>
                 
                 {/* PROYECTOS (ID: projects) */}
-                <section id="Proyectos" className="m-24">
+                <section id="Proyectos" className="py-8 sm:py-16">
                     <Proyectos/>
                 </section>
                 
                 {/* EXPERIENCIA (ID: experience) */}
-                <section id="Experiencia" className="m-70">
+                <section id="Experiencia" className="py-8 sm:py-16">
                     <Experiencia/>
                 </section>
                 
                 {/* CONTACTO (ID: contact) */}
-                <section id="Contacto" className="m-24">
+                <section id="Contacto" className="py-8 sm:py-16">
                     <Contacto/>
                 </section>
                 

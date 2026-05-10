@@ -8,7 +8,7 @@ import {
     SiPython 
 } from 'react-icons/si';
 
-import { IoLogoJavascript } from "react-icons/io5";
+import { BiLogoJava } from 'react-icons/bi';
 import { Code} from 'lucide-react'; 
 import { BiLogoSpringBoot } from 'react-icons/bi';
 
@@ -19,14 +19,14 @@ const Tecnologias = () => {
     const FRONTEND = [
         { name: "HTML5", Icon: <SiHtml5 className={`text-orange-500 ${ICON_SIZE}`}/>},
         { name: "CSS3", Icon: <SiCss3 className={`text-blue-500 ${ICON_SIZE}`}/>},
-        { name: "JS", Icon: <IoLogoJavascript className={`text-yellow-500 ${ICON_SIZE}`}/>},
+        { name: "JS", Icon: <SiJavascript className={`text-yellow-500 ${ICON_SIZE}`}/>},
         { name: "REACT", Icon: <SiReact className={`text-cyan-400 ${ICON_SIZE}`}/>},
         { name: "BOOTSTRAP", Icon: <SiBootstrap className={`text-purple-500 ${ICON_SIZE}`}/>},
         { name: "TAILWIND", Icon: <SiTailwindcss className={`text-cyan-400 ${ICON_SIZE}`}/>},
     ];
 
     const BACKEND = [
-        { name: "JAVA", Icon: <SiJavascript className={`text-red-500 ${ICON_SIZE}`}/>}, 
+        { name: "JAVA", Icon: <BiLogoJava className={`text-red-500 ${ICON_SIZE}`}/>}, 
         { name: "SPRINGBOOT", Icon: <BiLogoSpringBoot className={`text-green-500 ${ICON_SIZE}`}/>},
         { name: "PYTHON ", Icon: <SiPython  className={`text-blue-400 ${ICON_SIZE}`}/>},
     ];

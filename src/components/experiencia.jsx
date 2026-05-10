@@ -29,15 +29,15 @@ const Experiencia = () => {
             tipo: "educacion",
             titulo: "Full Stack Java",
             institucion: "Generation Colombia",
-            fecha: "Octubre 2025 - Enero 2026",
-            descripcion: "Especialización en desarrollo de software y bases de datos. Proyecto de tesis sobre sistemas distribuidos.",
+            fecha: "2025",
+            descripcion: "Especialización intensiva en desarrollo backend con Java, Spring Boot, APIs REST y bases de datos.",
         },
         {
             tipo: "educacion",
-            titulo: "Tecnolo En Analisis Y Desarrollo De Software",
-            institucion: "Politecnico Grancolombiano",
-            fecha: "Enero 2022 - Septiembre 2025",
-            descripcion: "Especialización en desarrollo de software y bases de datos. Proyecto de tesis sobre sistemas distribuidos.",
+            titulo: "Tecnólogo en Análisis y Desarrollo de Software",
+            institucion: "Politécnelco Grancolombiano",
+            fecha: "2022 - 2024",
+            descripcion: "Formación en análisis de requisitos, desarrollo de software y gestión de bases de datos.",
         },
     ];
 

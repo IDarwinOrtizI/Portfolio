@@ -20,5 +20,8 @@ dist-ssr
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
+
+# Archivos personales (no necesarios para GitHub)
+CONTEXTO_PORTAFOLIO.md
+COMO_PROBAR.md

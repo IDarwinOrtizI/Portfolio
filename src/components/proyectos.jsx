@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Briefcase } from 'lucide-react'; 
 import ProyectoTarjeta from './proyectoTarjeta';
 
@@ -7,8 +7,9 @@ const Proyectos = () => {
     const [proyectos, setProyectos] = useState([]);
     const [cargando, setCargando] = useState(true);
 
-    // --- 1. DATOS INICIALES CON IMÁGENES ---
-    const PROYECTOS_INICIALES = [
+    // --- 1. DATOS INICIALES CON IMÁGENES (MEMOIZADO) ---
+    // useMemo asegura que el array no se recree en cada render
+    const PROYECTOS_INICIALES = useMemo(() => [
         {
             titulo: "E-commerce Tierra Viva",
             descripcion: "Plataforma de comercio electrónico completa con autenticación, pasarela de pagos y panel de administración.",
@@ -16,36 +17,32 @@ const Proyectos = () => {
             enlaceDemo: "https://github.com/TierraVivaa/tierra-viva-frontend.git",
             enlaceRepo: "https://github.com/TierraVivaa/tierra-viva-frontend.git",
             
-            // <---- CAMBIO CLAVE 1: AGREGAR ARRAY DE IMAGENES ---->
-            imagenes: [
-                "/images/ecommerce-shot-1.jpg", 
-                "/images/ecommerce-shot-2.jpg",
-                "/images/ecommerce-shot-3.jpg",
-            ],
-            // <----------------------------------------------------->
-
-            githubRepo: "TU_USUARIO/nombre-del-repo-ecommerce",
+            githubRepo: "TierraVivaa/tierra-viva-frontend",
+            imagenes: ["/img/tierraviva.png"],
             color: "border-purple-500"
         },
         {
-            titulo: "Clon de Red Social con Django",
-            descripcion: "Implementación de funciones básicas de una red social: posts, likes, comentarios y seguimiento de usuarios.",
-            tecnologias: ["Python", "Django", "PostgreSQL", "Tailwind CSS"],
-            enlaceDemo: "http://demo.social.com",
-            enlaceRepo: "https://github.com/TierraVivaa/tierra-viva-frontend.git",
+            titulo: "WorkShakePoli",
+            descripcion: "Juego web de palabras con tematicas variadas y niveles segun se desea",
+            tecnologias: ["Python", "Django", "PostgreSQL", "Css", "JavaScript"],
+            enlaceDemo: "https://github.com/Bambam934/WorkShakePoli.git",
+            enlaceRepo: "https://github.com/Bambam934/WorkShakePoli.git",
 
-            // <---- CAMBIO CLAVE 1: AGREGAR ARRAY DE IMAGENES ---->
-            imagenes: [
-                "/images/social-shot-1.jpg",
-                "/images/social-shot-2.jpg",
-            ],
-            // <----------------------------------------------------->
-
-            githubRepo: "TU_USUARIO/nombre-del-repo-social",
+            githubRepo: "Bambam934/WorkShakePoli",
             color: "border-blue-500" 
         },
-        // Asegúrate de agregar el campo 'imagenes' a TODOS tus proyectos.
-    ];
+        {
+            titulo: "Sistema RH FullStack",
+            descripcion: "Sistema de gestión de recursos humanos con autenticación, gestión de empleados y administración de nóminas.",
+            tecnologias: ["Java", "Spring Boot", "React", "MySQL", "JWT"],
+            enlaceDemo: "https://github.com/IDarwinOrtizI/Proyecto-RH-FullStack.git",
+            enlaceRepo: "https://github.com/IDarwinOrtizI/Proyecto-RH-FullStack.git",
+
+            githubRepo: "IDarwinOrtizI/Proyecto-RH-FullStack",
+            imagenes: ["/img/rhempleados.png"],
+            color: "border-green-500"
+        },
+    ], []);
 
     // ------------------- LÓGICA DE CARGA DE LENGUAJES -------------------
     
@@ -82,7 +79,7 @@ const Proyectos = () => {
         };
 
         cargarProyectos();
-    }, []);
+    }, [PROYECTOS_INICIALES]);
     
     // ---------------------------------------------------------------------
 
@@ -101,7 +98,7 @@ const Proyectos = () => {
                 Proyectos
             </h2>
 
-            <div className="max-w-7xl mx-auto grid gap-8 grid-cols-1 md:grid-cols-2">
+            <div className="max-w-2xl sm:max-w-4xl lg:max-w-7xl mx-auto grid gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2">
                 
                 {proyectos.map((proyecto, index) => (
                     <ProyectoTarjeta 

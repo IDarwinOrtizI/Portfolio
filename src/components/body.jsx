@@ -1,38 +1,38 @@
 import { Linkedin, Github, Download } from 'lucide-react';
-import Foto from '../assets/images/moto.jpg'
+import Foto from '../assets/images/foto.jpeg'
 // Asegúrate de que los íconos (Mail, Linkedin, Github) estén importados.
 const Body = () => {
     return (
         // Contenedor principal de la sección. Centrado verticalmente.
-        <section className="flex items-center justify-center min-h-[90vh] p-12 ">
+        <section className="flex items-center justify-center min-h-[90vh] p-4 sm:p-12">
             
             {/* Contenedor Interior: Usa Flex para poner Texto y Foto LADO A LADO. */}
-            <div className="flex max-w-4xl w-full items-center justify-between space-x-12">
+            <div className="flex flex-col sm:flex-row max-w-4xl w-full items-center justify-between space-y-8 sm:space-y-0 sm:space-x-12">
                 
                 {/* 1. Área de Texto y Links (Organizados en columna) */}
-                <div className="text-white dark:text-white flex flex-col space-y-4">
+                <div className="text-white dark:text-white flex flex-col space-y-4 text-center sm:text-left">
                     
                     {/* H1 Corregido: Solo clases de texto */}
-                    <h1 className="text-5xl font-bold
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold
                                 text-cyan-800 dark:text-red-500
                                 transition-colors duration-500">
                         Darwin Sebastian Ortiz Caballero
                     </h1>
                     
-                    <h2 className="text-xl font-medium 
+                    <h2 className="text-lg sm:text-xl font-medium 
                                 text-cyan-800 dark:text-red-500
                                 transition-colors duration-500">
                         Tecnólogo en Análisis Y Desarrollo de Software | Desarrollador Full Stack Jr
                     </h2>
                     
                     <p className="text-gray-600 dark:text-gray-300
-                                    mt-1 max-w-md
+                                    mt-1 max-w-md mx-auto sm:mx-0
                                     transition-colors duration-500">
                         Siempre explorando nuevas metodologías y herramientas para implementar las mejores soluciones en cada situación.
                     </p>
                     
                     {/* Links de Redes Sociales */}
-                    <div className="flex space-x-4 pt-4">
+                    <div className="flex space-x-4 pt-4 justify-center sm:justify-start">
                         <a href="https://linkedin.com/in/darwin-ortiz-full-stack" target="_blank" className="text-cyan-600 dark:text-red-500  
                                                                                                                 hover:text-cyan-400 dark:hover:text-red-500
                                                                                                                 transition-colors duration-500">
@@ -55,8 +55,8 @@ const Body = () => {
                 <div className="shrink-0">
                     <img 
                         src={Foto} // Usando la importación {Foto}
-                        alt="Foto de perfil"
-                        className="w-70 h-70 rounded-full object-cover border-3 border-cyan-400 dark:border-red-500 transition-colors duration-500 shadow-2xl"
+                        alt="Foto de perfil de Darwin Ortiz"
+                        className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 rounded-full object-cover border-3 border-cyan-400 dark:border-red-500 transition-colors duration-500 shadow-2xl"
                     />
                 </div>
             </div>

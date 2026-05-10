@@ -1,10 +1,10 @@
-// src/components/Menu.jsx
-
-// Importación CORREGIDA del componente ThemeToggle (usando llaves {})
+import React from 'react';
 import ThemeToggle from './temacolor'; 
-import { Home, Code, Layers, MessageSquare, Briefcase, Phone} from 'lucide-react'; 
+import { Home, Code, Layers, MessageSquare, Briefcase, Phone, Menu as MenuIcon, X } from 'lucide-react'; 
 
 const Menu = ({ activeSection, onNavigate }) => {
+
+    const [isOpen, setIsOpen] = React.useState(false);
 
     // SVG de WhatsApp para el logo principal (DEFINIDO DENTRO DEL COMPONENTE)
     const WhatsAppIcon = () => (
@@ -20,69 +20,102 @@ const Menu = ({ activeSection, onNavigate }) => {
     ];
 
     return (
-        // Contenedor principal: Fijo, a la izquierda, centrado verticalmente
-        <nav className="fixed left-0 top-0 h-screen w-20 flex justify-center items-center z-50"> 
+        // Contenedor principal: Sticky en la parte superior
+        <nav className="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800"> 
             
-            {/* Contenedor Encapsulado (Aplica los colores y el blur) */}
-            <div className="
-                w-14 h-auto py-4 
-                bg-white/30 dark:bg-gray-900/40 
-                backdrop-blur-sm
-                rounded-3xl shadow-xl 
-                flex flex-col items-center space-y-4 
-                border border-gray-100/50 dark:border-gray-800/50
-            ">
+            {/* Contenedor Encapsulado */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center h-16">
+                    
+                    {/* Ícono Superior (Logo/Whatsapp) */}
+                    <a 
+                        href="https://wa.me/573202164566" 
+                        target='_blank'
+                        title='Enviar WhatsApp a Darwin Ortiz'
+                        className="p-2 bg-white dark:bg-gray-950 rounded-full text-red-500 shadow-md"
+                        aria-label="Enviar mensaje por WhatsApp"
+                    >
+                        {/* Utilizamos el ícono SVG de WhatsApp */}
+                        <WhatsAppIcon className="w-6 h-6" /> 
+                    </a>
+
+                    {/* Lista de Navegación */}
+                    <ul className="hidden md:flex list-none p-0 m-0 space-x-8"> 
+                        {navItems.map((item) => {
+                            const isActive = activeSection === item.id;
+                            
+                            let classes = 'flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200';
+                            
+                            if (isActive) {
+                                classes += ' bg-cyan-100 text-cyan-800 dark:bg-red-100 dark:text-red-800';
+                            } else {
+                                classes += ' text-gray-500 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-red-500 hover:bg-gray-100 dark:hover:bg-gray-800';
+                            }
+
+                            return (
+                                <li key={item.id}>
+                                    <button
+                                        onClick={() => onNavigate(item.id)}
+                                        className={classes}
+                                        aria-label={`Navegar a ${item.title}`}
+                                    >
+                                        <item.Icon className="w-5 h-5" /> 
+                                        <span>{item.title}</span>
+                                    </button>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                    
+                    {/* Tema Toggle */}
+                    <ThemeToggle />
+                    
+                    {/* Menú móvil */}
+                    <div className="md:hidden">
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="p-2 text-gray-500 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-red-500"
+                            aria-label="Toggle menu"
+                        >
+                            {isOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+                        </button>
+                    </div>
+                </div>
                 
-                {/* Ícono Superior (Logo/Whatsapp) - Usa el acento del Dark Mode como color principal */}
-                <a 
-                    href="https://wa.me/573202164566" 
-                    target='_blank'
-                    title='Enviar WhatsApp a Darwin Ortiz'
-                    className="p-2 bg-white dark:bg-gray-950 rounded-full text-red-500 shadow-md"
-                >
-                    {/* Utilizamos el ícono SVG de WhatsApp */}
-                    <WhatsAppIcon className="w-6 h-6" /> 
-                </a>
+                {/* Menú móvil desplegable */}
+                {isOpen && (
+                    <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-all duration-300">
+                        <ul className="flex flex-col space-y-2 p-4">
+                            {navItems.map((item) => {
+                                const isActive = activeSection === item.id;
+                                
+                                let classes = 'flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200';
+                                
+                                if (isActive) {
+                                    classes += ' bg-cyan-100 text-cyan-800 dark:bg-red-100 dark:text-red-800';
+                                } else {
+                                    classes += ' text-gray-500 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-red-500 hover:bg-gray-100 dark:hover:bg-gray-800';
+                                }
 
-                {/* Lista de Navegación (Mapeo de los ítems) */}
-                <ul className="list-none p-0 m-0 flex flex-col items-center space-y-2"> 
-                    {navItems.map((item) => {
-                        const isActive = activeSection === item.id;
-                        
-                        // Clase base para los íconos (gris sutil)
-                        let classes = 'p-3 rounded-full transition-colors duration-200 block';
-                        
-                        if (isActive) {
-                            // ACTIVO: Fondo blanco y acento rojo
-                            classes += ' bg-white text-red-500 dark:bg-gray-950 dark:text-red-500 shadow-md';
-                        } else {
-                            // INACTIVO: Color gris y hover con acentos
-                            classes += ' text-gray-500 dark:text-gray-400';
-                            // HOVER: Fondo sutil, el texto toma el color de acento
-                            classes += ' hover:bg-gray-100 dark:hover:bg-gray-800';
-                            classes += ' hover:text-cyan-600 dark:hover:text-red-500';
-                        }
-
-                        return (
-                            <li key={item.id}>
-                                <button
-                                    onClick={() => onNavigate(item.id)}
-                                    title={item.title}
-                                    className={classes}
-                                >
-                                    <item.Icon className="w-6 h-6" /> 
-                                </button>
-                            </li>
-                        );
-                    })}
-                </ul>
-                
-                {/* Separador visual opcional */}
-                <hr className="w-3/4 border-t border-gray-300 dark:border-gray-700" />
-
-                {/* BOTÓN DE MODO OSCURO */}
-                <ThemeToggle />
-
+                                return (
+                                    <li key={item.id}>
+                                        <button
+                                            onClick={() => {
+                                                onNavigate(item.id);
+                                                setIsOpen(false);
+                                            }}
+                                            className={classes}
+                                            aria-label={`Navegar a ${item.title}`}
+                                        >
+                                            <item.Icon className="w-5 h-5" /> 
+                                            <span>{item.title}</span>
+                                        </button>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                )}
             </div>
         </nav>
     );

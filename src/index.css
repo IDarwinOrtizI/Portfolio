@@ -1,3 +1,30 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Asegura que el fondo cubra toda la pantalla y transicione suavemente */
+html, body, #root {
+    min-height: 100%;
+    width: 100%;
+    background-color: white;
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+}
+
+html.dark, body.dark {
+    background-color: #0f172a;
+}
+
+/* Mejora la transición de colores globales */
+* {
+    @apply transition-colors duration-500;
+}
+
+/* Transición suave para cambio de tema */
+html {
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+}
+
+/* Asegurar que todos los elementos también tengan transición suave */
+* {
+    @apply transition-colors duration-500;
+}
