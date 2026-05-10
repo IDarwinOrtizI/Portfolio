@@ -43,9 +43,14 @@ const Body = () => {
                                                                                                 transition-colors duration-500">
                             <Github className="w-6 h-6" />
                         </a>
-                        <a href="mailto:sebastiancaballero0811@gmail.com" className="text-cyan-600 dark:text-red-500  
-                                                                                        hover:text-cyan-400 dark:hover:text-red-500
-                                                                                        transition-colors duration-500">
+                        <a 
+                            href="/HvDarwinOrtiz.pdf" 
+                            download="Darwin_Ortiz_CV.pdf"
+                            className="text-cyan-600 dark:text-red-500  
+                            hover:text-cyan-400 dark:hover:text-red-500
+                            transition-colors duration-500"
+                            title="Descargar CV"
+                        >
                             <Download className="w-6 h-6" />
                         </a>
                     </div>
